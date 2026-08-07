@@ -1,1 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 @import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+@theme {
+  --font-sans: "Lexend", sans-serif;
+
+  --color-c-beige: #fff3d0;
+  --color-c-pink: #f4c2e4;
+  --color-c-yellow: #ffdb65;
+  --color-c-orange: #fc5d0a;
+  --color-c-green: #afc63c;
+  --color-c-blue: #148bcd;
+  --color-c-brown: #a4794e;
+}
+
+* {
+  @apply m-0 p-0;
+}
+
+body {
+  @apply font-sans;
+}

@@ -1,9 +1,10 @@
+import LogoIcon from "./Logo";
+
 export default function Header() {
   return (
     <header>
-      <nav>
-        <h1>Cafeko</h1>
-        {/* nav links */}
+      <nav className="flex items-center justify-between p-2">
+        <LogoIcon className="w-40 h-auto text-c-orange" />
       </nav>
     </header>
   );
