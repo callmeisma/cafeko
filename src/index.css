@@ -1,9 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+
+@font-face {
+  font-family: "Boyrun";
+  src: url("./assets/fonts/Boyrun.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chunko";
+  src: url("./assets/fonts/Chunko Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aimla";
+  src: url("./assets/fonts/Aimla-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
 @theme {
-  --font-sans: "Lexend", sans-serif;
+  --font-sans: "Aimla", "Lexend", sans-serif;
+
+  --font-display: "Cafeko Display", sans-serif;
+  --font-boyrun: "Boyrun", sans-serif;
+  --font-chunko: "Chunko", sans-serif;
 
   --color-c-beige: #fff3d0;
   --color-c-pink: #f4c2e4;
@@ -15,9 +44,15 @@
 }
 
 * {
-  @apply m-0 p-0;
+  @apply box-border m-0 p-0;
+}
+
+html,
+body,
+#root {
+  @apply min-h-full w-full;
 }
 
 body {
-  @apply font-sans;
+  @apply bg-c-yellow font-sans text-neutral-950;
 }
