@@ -43,10 +43,6 @@
   --color-c-brown: #a4794e;
 }
 
-* {
-  @apply box-border m-0 p-0;
-}
-
 html,
 body,
 #root {
@@ -54,5 +50,5 @@ body,
 }
 
 body {
-  @apply bg-c-yellow font-sans text-neutral-950;
+  @apply bg-c-beige font-sans text-neutral-950;
 }

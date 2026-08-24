@@ -1,221 +1,548 @@
-import type { MenuItem } from "../data/menu";
-
-import {
-  coffee,
-  drinks,
-  iceCream,
-  milkshakes,
-  food,
-  combos,
-} from "../data/menu";
-
-type ProductFeatureProps = {
-  image: string;
-  eyebrow: string;
-  title: string;
-  background: "beige" | "pink";
-  large?: boolean;
-};
-
-function MenuSection({
-  title,
-  items,
-}: {
-  title: string;
-  items: MenuItem[];
-}) {
-  return (
-    <section>
-      {title && (
-        <h2 className="font-chunko text-4xl uppercase leading-none tracking-wide text-c-blue">
-          {title}
-        </h2>
-      )}
-
-      <div className="flex flex-col gap-1.5">
-        {items.map((item) => (
-          <div key={item.name}>
-            <div className="font-boyrun flex items-end gap-2 text-[clamp(15px,1vw,22px)] leading-none">
-              <span className="whitespace-nowrap uppercase">
-                {item.name}
-              </span>
-
-              <span className="mb-1 flex-1 border-b border-black/30" />
-
-              <strong className="whitespace-nowrap text-[0.85em]">
-                {item.price}
-              </strong>
-            </div>
-
-            {item.description && (
-              <p className="mt-1 text-[clamp(11px,0.7vw,15px)] leading-snug">
-                {item.description}
-              </p>
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function ProductFeature({
-  image,
-  eyebrow,
-  title,
-  background,
-  large = false,
-}: ProductFeatureProps) {
-  const backgroundClass =
-    background === "pink" ? "bg-c-pink" : "bg-c-beige";
-
-  return (
-    <div
-      className={`
-        ${backgroundClass}
-        grid grid-cols-[1.15fr_0.85fr]
-        items-center overflow-hidden rounded-[2vw]
-        ${
-          large
-            ? "min-h-[22vh] p-[1.5vw]"
-            : "min-h-[14vh] p-[1vw]"
-        }
-      `}
-    >
-      <img
-        src={image}
-        alt=""
-        className={`
-          h-full w-full object-contain
-          ${
-            large
-              ? "max-h-[28vh] scale-110"
-              : "max-h-[15vh]"
-          }
-        `}
-      />
-
-      <div className="flex flex-col gap-1 items-center justify-center">
-        <span className="font-aimla block text-[clamp(10px,0.7vw,15px)] uppercase tracking-widest text-center">
-          {eyebrow}
-        </span>
-
-        <strong className="font-boyrun mt-1 block text-[clamp(22px,2vw,44px)] font-black uppercase leading-[0.9] text-center text-c-orange">
-          {title}
-        </strong>
-      </div>
-    </div>
-  );
-}
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 export default function Menu() {
   return (
-    <main className="h-screen w-screen overflow-hidden bg-c-yellow text-neutral-950 !p-10">
-      {/* HEADER */}
-      <header className="w-full flex flex-col items-center">
-        <div className="w-80 flex justify-between">
-          <span className="font-boyrun text-c-orange">MENU</span>
-          <span className="font-boyrun text-c-orange">REFUEL HERE</span>
+    <>
+      <Navbar />
+      <section id="menu" className="px-5 py-6 md:px-10 lg:px-14">
+        <div
+          className="
+            mx-auto
+            flex
+            max-w-[1500px]
+            gap-3
+            overflow-x-auto
+            p-2
+          "
+        >
+          <a href="#icecream" className="whitespace-nowrap rounded-full bg-c-pink px-5 py-2 font-boyrun uppercase">
+            Ice Cream
+          </a>
+
+          <a href="#coffee" className="whitespace-nowrap rounded-full bg-c-blue px-5 py-2 font-boyrun uppercase text-white">
+            Coffee
+          </a>
+
+          <a href="#milkshakes" className="whitespace-nowrap rounded-full bg-c-yellow px-5 py-2 font-boyrun uppercase">
+            Milkshakes
+          </a>
+
+          <a href="#food" className="whitespace-nowrap rounded-full bg-c-green px-5 py-2 font-boyrun uppercase">
+            Bakery
+          </a>
+
+          <a href="#combos" className="whitespace-nowrap rounded-full bg-c-orange px-5 py-2 font-boyrun uppercase text-white">
+            Combos
+          </a>
+
+          <a href="#drinks" className="whitespace-nowrap rounded-full border-2 border-c-pink px-5 py-2 font-boyrun uppercase">
+            Drinks
+          </a>
         </div>
-        <h1 className="font-chunko text-c-orange text-8xl">CAFÉKO</h1>
-      </header>
+      </section>
 
-      {/* MAIN MENU */}
-      <div className="mx-auto grid max-w-[1800px] grid-cols-[0.95fr_1.15fr_0.95fr] gap-[4vw]">
-        {/* LEFT */}
-        <div className="flex flex-col gap-[3vh]">
-          <MenuSection
-            title="Coffee"
-            items={coffee}
-          />
+      {/* MAIN MENU BOARD */}
+      <main className="px-5 pb-24 md:px-10 lg:px-14">
+        <div
+          className="
+            mx-auto
+            grid
+            max-w-[1500px]
+            gap-6
+            lg:grid-cols-12
+          "
+        >
 
-          <MenuSection
-            title="Drinks"
-            items={drinks}
-          />
+          {/* ICE CREAM FEATURE */}
+          <section
+            id="icecream"
+            className="
+              relative
+              overflow-hidden
+              rounded-[45px]
+              bg-c-pink
+              p-7
+              lg:col-span-7
+              md:p-10
+            "
+          >
 
-          <ProductFeature
-            image="/images/menu/coffee.png"
-            eyebrow="Good days start"
-            title="With Coffee."
-            background="beige"
-          />
-        </div>
+            <div className="relative z-10 grid gap-8 md:grid-cols-[1fr_0.9fr]">
 
-        {/* CENTER */}
-        <div className="flex flex-col gap-[2.5vh]">
-          <section>
-            <h2 className="font-chunko text-4xl uppercase leading-none tracking-wide text-c-blue">
-              Real Fruit
-              <br />
-              Ice Cream
-            </h2>
+              <div>
+                <div
+                  className="
+                    mb-4
+                    inline-block
+                    rotate-[-2deg]
+                    rounded-full
+                    bg-c-orange
+                    px-4
+                    py-2
+                    font-boyrun
+                    text-xs
+                    uppercase
+                    text-white
+                  "
+                >
+                  CAFÉKO Signature
+                </div>
 
-            <p className="mb-3 max-w-md text-[clamp(14px,0.9vw,19px)] leading-snug">
-              2 scoops of vanilla ice cream blended with real fruit.
-            </p>
+                <h2
+                  className="
+                    font-chunko
+                    text-5xl
+                    uppercase
+                    leading-[0.82]
+                    md:text-7xl
+                  "
+                >
+                  REAL
+                  <br />
+                  FRUIT
+                  <br />
+                  ICE CREAM
+                </h2>
 
-            <h3 className="mb-1 text-[clamp(17px,1.1vw,24px)] font-semibold italic tracking-wide">
-              PICK YOUR FRUIT
-            </h3>
+                <p className="mt-5 max-w-sm">
+                  New Zealand-style real fruit ice cream,
+                  blended fresh to order.
+                </p>
 
-            <p className="mb-4 text-[clamp(12px,0.8vw,17px)]">
-              Strawberry · Mango · Mixed Berries · Peach · Banana
-            </p>
+                <div className="mt-8 rounded-[28px] bg-c-yellow p-5">
 
-            <MenuSection
-              title=""
-              items={iceCream}
-            />
+                  <div className="flex items-end gap-3">
+                    <span className="font-chunko text-xl uppercase">
+                      One Fruit
+                    </span>
+                  </div>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <span className="shadow-lg rounded-full bg-c-pink px-3 py-1 text-sm font-boyrun">
+                      Strawberry
+                    </span>
+                    <span className="shadow-lg rounded-full bg-c-yellow px-3 py-1 text-sm font-boyrun">
+                      Mango
+                    </span>
+                    <span className="shadow-lg rounded-full bg-c-pink px-3 py-1 text-sm font-boyrun">
+                      Mixed Berries
+                    </span>
+                    <span className="shadow-lg rounded-full bg-c-green px-3 py-1 text-sm font-boyrun">
+                      Banana
+                    </span>
+                    <span className="shadow-lg rounded-full bg-c-orange px-3 py-1 text-sm font-boyrun text-white">
+                      Peach
+                    </span>
+                  </div>
+
+                </div>
+              </div>
+
+              {/* image stack */}
+              <div className="relative min-h-[330px]">
+
+                <div
+                  className="
+                    absolute
+                    left-[6%]
+                    top-[8%]
+                    h-[75%]
+                    aspect-square
+                    rounded-full
+                    bg-c-blue
+                  "
+                ></div>
+
+                <img
+                  src="/images/menu/icecream-mango.png"
+                  className="
+                    absolute
+                    left-1/2
+                    top-0
+                    z-10
+                    h-[95%]
+                    w-auto
+                    -translate-x-1/2
+                    object-contain
+                  "
+                  alt="Real Fruit Ice Cream"
+                />
+
+                <div
+                  className="
+                    absolute
+                    right-[2%]
+                    bottom-[4%]
+                    z-20
+                    rotate-6
+                    rounded-[22px]
+                    bg-c-yellow
+                    px-4
+                    py-3
+                    font-chunko
+                    text-sm
+                    uppercase
+                  "
+                >
+                  NO
+                  <br />
+                  PRESERVATIVES
+                </div>
+
+              </div>
+
+            </div>
           </section>
 
-          <ProductFeature
-            image="/images/menu/icecream_berry.png"
-            eyebrow="Made to order"
-            title="Real Fruit. Real Good."
-            background="pink"
-            large
-          />
+          {/* COFFEE */}
+          <section
+            id="coffee"
+            className="
+              rounded-[45px]
+              bg-c-blue
+              p-7
+              text-white
+              lg:col-span-5
+              md:p-9
+            "
+          >
 
-          <MenuSection
-            title="Milkshakes"
-            items={milkshakes}
-          />
+            <div className="flex items-center justify-between">
+              <h2 className="font-chunko text-5xl uppercase">
+                COFFEE
+              </h2>
+
+              <span
+                className="
+                  rotate-6
+                  rounded-full
+                  bg-c-yellow
+                  px-4
+                  py-2
+                  font-boyrun
+                  text-xs
+                  uppercase
+                  text-black
+                "
+              >
+                Hot / Iced
+              </span>
+            </div>
+
+            <div className="mt-8 space-y-5 font-boyrun">
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Espresso</span>
+              </div>
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Cortadito</span>
+              </div>
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Cappuccino</span>
+              </div>
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Latte</span>
+              </div>
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Americano</span>
+              </div>
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Iced Latte</span>
+              </div>
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Iced Americano</span>
+              </div>
+
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-2">
+              <span className="rounded-full bg-c-pink px-4 py-2 text-sm font-boyrun text-black">
+                Whole Milk
+              </span>
+
+              <span className="rounded-full bg-c-green px-4 py-2 text-sm font-boyrun text-black">
+                Almond Milk
+              </span>
+
+              <span className="rounded-full bg-c-yellow px-4 py-2 text-sm font-boyrun text-black">
+                Oat Milk
+              </span>
+            </div>
+
+          </section>
+
+          {/* MILKSHAKES */}
+          <section
+            id="milkshakes"
+            className="
+              relative
+              overflow-hidden
+              rounded-[45px]
+              bg-c-yellow
+              p-7
+              lg:col-span-5
+              md:p-9
+            "
+          >
+
+            <div className="absolute -right-10 -top-10 text-[130px] opacity-10">
+              ★
+            </div>
+
+            <p className="font-boyrun text-xs uppercase text-c-orange">
+              Shake it up
+            </p>
+
+            <h2 className="mt-1 font-chunko text-5xl uppercase">
+              MILKSHAKES
+            </h2>
+
+            <div className="mt-8 space-y-7">
+
+              <div>
+                <div className="flex items-end gap-3">
+                  <span className="text-xl uppercase">
+                    Power Serve
+                  </span>
+                </div>
+
+                <p className="mt-1 text-sm">
+                  Banana + Oreo
+                </p>
+              </div>
+
+              <div>
+                <div className="flex items-end gap-3">
+                  <span className="text-xl uppercase">
+                    Belly Rally
+                  </span>
+                </div>
+
+                <p className="mt-1 text-sm">
+                  Mixed berries + vanilla
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+          {/* FOOD */}
+          <section
+            id="food"
+            className="rounded-[45px] bg-c-green p-7 lg:col-span-7 md:p-9"
+          >
+
+            <div>
+              <p className="font-boyrun text-xs uppercase text-c-orange">
+                Grab a bite
+              </p>
+
+              <h2 className="mt-1 font-chunko text-5xl uppercase leading-[0.9]">
+                BAKERY + FOOD
+              </h2>
+            </div>
+
+              
+            <div className="p-6 grid grid-cols-3 gap-3">
+              <div className="overflow-hidden rounded-3xl bg-c-beige">
+                <img
+                  src="/images/menu/BREAKFAST CROISSANT.png"
+                  className="aspect-square w-full object-cover"
+                  alt="Breakfast Sandwich"
+                />
+                <span className="block px-3 py-2.5 text-center font-boyrun text-xs uppercase text-[#06365C]">
+                  Breakfast Sandwich
+                </span>
+              </div>
+
+              <div className="overflow-hidden rounded-3xl bg-c-beige">
+                <img
+                  src="/images/menu/CACHITO.png"
+                  className="aspect-square w-full object-cover"
+                  alt="Cachito"
+                />
+                <span className="block px-3 py-2.5 text-center font-boyrun text-xs uppercase text-[#06365C]">
+                  Cachito
+                </span>
+              </div>
+
+              <div className="overflow-hidden rounded-3xl bg-c-beige">
+                <img
+                  src="/images/menu/TEQUENO.png"
+                  className="aspect-square w-full object-cover"
+                  alt="Tequeño"
+                />
+                <span className="block px-3 py-2.5 text-center font-boyrun text-xs uppercase text-[#06365C]">
+                  Tequeño
+                </span>
+              </div>
+
+              <div className="overflow-hidden rounded-3xl bg-c-beige">
+                <img
+                  src="/images/menu/PANBONO.png"
+                  className="aspect-square w-full object-cover"
+                  alt="Pan de Bono"
+                />
+                <span className="block px-3 py-2.5 text-center font-boyrun text-xs uppercase text-[#06365C]">
+                  Pan de Bono
+                </span>
+              </div>
+
+              <div className="overflow-hidden rounded-3xl bg-c-beige">
+                <img
+                  src="/images/menu/MUFFIN CARROT.png"
+                  className="aspect-square w-full object-cover"
+                  alt="Muffin Carrot"
+                />
+                <span className="block px-3 py-2.5 text-center font-boyrun text-xs uppercase text-[#06365C]">
+                  Muffin
+                </span>
+                <div className="mt-1.5 p-4 flex items-center justify-center flex-wrap gap-1.5 text-[11px] font-boyrun">
+                  <span className="rounded-full bg-c-yellow px-2.5 py-1">Dubai Chocolate</span>
+                  <span className="rounded-full bg-c-pink px-2.5 py-1">Dulce de Leche</span>
+                  <span className="rounded-full bg-c-yellow px-2.5 py-1">Nuts & Cream</span>
+                  <span className="rounded-full bg-c-pink px-2.5 py-1">Carrot</span>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-3xl bg-c-beige">
+                <img
+                  src="/images/menu/JUMBO CROISSANT.png"
+                  className="aspect-square w-full object-cover"
+                  alt="Jumbo Croissant"
+                />
+                <span className="block px-3 py-2.5 text-center font-boyrun text-xs uppercase text-[#06365C]">
+                  Croissant
+                </span>
+                <div className="mt-1.5 p-4 flex items-center justify-center flex-wrap gap-1.5 text-[11px] font-boyrun">
+                  <span className="rounded-full bg-c-pink px-2.5 py-1">Jumbo</span>
+                  <span className="rounded-full bg-c-yellow px-2.5 py-1">Plain</span>
+                  <span className="rounded-full bg-c-pink px-2.5 py-1">Chocolate</span>
+                  <span className="rounded-full bg-c-yellow px-2.5 py-1">Dulce de Leche</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* COMBOS */}
+          <section
+            id="combos"
+            className="
+              rounded-[45px]
+              bg-c-orange
+              p-7
+              text-white
+              lg:col-span-8
+              md:p-9
+            "
+          >
+
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="font-boyrun text-xs uppercase text-c-yellow">
+                  Better together
+                </p>
+
+                <h2 className="font-chunko text-5xl uppercase">
+                  COMBOS
+                </h2>
+              </div>
+
+              <div className="rotate-3 rounded-full bg-c-pink px-4 py-2 font-boyrun text-black">
+                SAVE A BITE
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+
+              <div className="rounded-[28px] bg-c-yellow p-6 text-black">
+                <p className="text-xs font-boyrun uppercase text-c-blue">
+                  Morning Favorite
+                </p>
+
+                <div className="mt-2 flex items-end gap-3">
+                  <span className="text-2xl uppercase">
+                    Morning Kick
+                  </span>
+                </div>
+                <span className="text-sm">
+                  Includes coffee and croissant
+                </span>
+              </div>
+
+              <div className="rounded-[28px] bg-c-yellow p-6 text-black">
+                <p className="text-xs font-boyrun uppercase text-c-blue">
+                  After the Match
+                </p>
+
+                <div className="mt-2 flex items-end gap-3">
+                  <span className="text-2xl uppercase">
+                    Post-Match
+                  Post-Match
+                </span>
+              </div>
+              <span className="text-sm">
+                Includes soda and snack
+              </span>
+            </div>
+            </div>
+
+          </section>
+
+          {/* DRINKS */}
+          <section
+            id="drinks"
+            className="
+              rounded-[45px]
+              bg-c-pink
+              p-7
+              lg:col-span-4
+              md:p-9
+            "
+          >
+
+            <h2 className="font-chunko text-5xl uppercase">
+              DRINKS
+            </h2>
+
+            <div className="mt-7 space-y-5">
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Water</span>
+              </div>
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Coco Water</span>
+              </div>
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Sport Drink</span>
+              </div>
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Sodas</span>
+              </div>
+
+              <div className="flex items-end gap-3">
+                <span className="uppercase">Red Bull</span>
+              </div>
+
+            </div>
+
+          </section>
+
         </div>
+      </main>
 
-        {/* RIGHT */}
-        <div className="flex flex-col gap-[3vh]">
-          <MenuSection
-            title="Food"
-            items={food}
-          />
-
-          <ProductFeature
-            image="/images/menu/PANABSANDW.png"
-            eyebrow="Fresh Bakery"
-            title="Grab & Go"
-            background="beige"
-          />
-
-          <MenuSection
-            title="Combos"
-            items={combos}
-          />
-        </div>
-      </div>
-
-      {/* FOOTER */}
-      <footer className="mt-[2vh] flex items-center justify-center gap-3 text-c-orange">
-        <i className="fa-brands fa-instagram text-[clamp(20px,1.5vw,30px)]" />
-
-        <span className="text-[clamp(12px,0.8vw,17px)] uppercase tracking-wider">
-          Follow us
-        </span>
-
-        <strong className="text-[clamp(18px,1.3vw,27px)] tracking-wider">
-          @CAFEKO.US
-        </strong>
-      </footer>
-    </main>
+      <Footer />
+    </>
   );
 }
