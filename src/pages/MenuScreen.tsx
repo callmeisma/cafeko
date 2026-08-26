@@ -1,13 +1,5 @@
 import type { MenuItem } from "../data/menu";
-
-import {
-  coffee,
-  drinks,
-  iceCream,
-  milkshakes,
-  food,
-  combos,
-} from "../data/menu";
+import { useMenuData } from "../hooks/useMenuData";
 
 type ProductFeatureProps = {
   image: string;
@@ -109,6 +101,8 @@ function ProductFeature({
 }
 
 export default function Menu() {
+  const { coffee, drinks, iceCream, milkshakes, food, combos } = useMenuData();
+
   return (
     <main className="h-screen w-screen overflow-hidden bg-c-beige text-neutral-950 !p-10">
       {/* HEADER */}
