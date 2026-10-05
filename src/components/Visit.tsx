@@ -6,7 +6,7 @@ export default function Visit() {
     >
 
       <div className="flex items-center">
-        <div>
+        <div className="flex flex-col items-start justify-start gap-4">
           <p className="font-boyrun uppercase text-[#FF5A1F]">
             Come say hi
           </p>
@@ -24,9 +24,9 @@ export default function Visit() {
           </p>
 
           <div className="mt-8 space-y-3 font-boyrun">
-            <p>📍 EKO PADEL & PICKLE</p>
-            <p>☕ COFFEE • ICE CREAM • BAKERY</p>
-            <p>📸 @cafeko.us</p>
+            <a href="https://maps.app.goo.gl/5WrhFSkjyFGNb2368" target="_blank" rel="noopener noreferrer" className="link">📍 EKO PADEL & PICKLE</a>
+            <p className="pt-4">☕ COFFEE • ICE CREAM • BAKERY</p>
+            <a href="https://instagram.com/cafeko.us" target="_blank" rel="noopener noreferrer" className="text-xl link">📸 @cafeko.us</a>
           </div>
         </div>
       </div>

@@ -35,10 +35,10 @@ export default function Navbar() {
       </Link>
 
       <div className="hidden items-center gap-8 font-boyrun text-sm uppercase md:flex">
-        <a href="/#about" onClick={(e) => handleNavClick(e, "#about")} className="outline-none decoration-c-orange decoration-2 underline-offset-2 hover:underline focus:underline">About</a>
-        <a href="/#menu" onClick={(e) => handleNavClick(e, "#menu")} className="outline-none decoration-c-orange decoration-2 underline-offset-2 hover:underline focus:underline">Menu</a>
-        <a href="/#icecream" onClick={(e) => handleNavClick(e, "#icecream")} className="outline-none decoration-c-orange decoration-2 underline-offset-2 hover:underline focus:underline">Ice Cream</a>
-        <a href="/#visit" onClick={(e) => handleNavClick(e, "#visit")} className="outline-none decoration-c-orange decoration-2 underline-offset-2 hover:underline focus:underline">Visit</a>
+        <a href="/#about" onClick={(e) => handleNavClick(e, "#about")} className="link">About</a>
+        <a href="/#menu" onClick={(e) => handleNavClick(e, "#menu")} className="link">Menu</a>
+        <a href="/#icecream" onClick={(e) => handleNavClick(e, "#icecream")} className="link">Ice Cream</a>
+        <a href="/#visit" onClick={(e) => handleNavClick(e, "#visit")} className="link">Visit</a>
       </div>
     </nav>
   );

@@ -16,10 +16,10 @@ export default function Footer() {
           <div>
             <p className="mb-3 font-boyrun uppercase">Explore</p>
             <div className="flex flex-col gap-2 ">
-              <Link to="/menu">Menu</Link>
-              <a href="/#about">About</a>
-              <a href="/#icecream">Real Fruit Ice Cream</a>
-              <a href="/#visit">Visit</a>
+              <Link to="/menu" className="link">Menu</Link>
+              <a href="/#about" className="link">About</a>
+              <a href="/#icecream" className="link">Real Fruit Ice Cream</a>
+              <a href="/#visit" className="link">Visit</a>
             </div>
           </div>
 
@@ -29,6 +29,7 @@ export default function Footer() {
               href="https://instagram.com/cafeko.us"
               target="_blank"
               rel="noreferrer"
+              className="link"
             >
               <i className="fa-brands fa-instagram pr-1"></i>
               @cafeko.us

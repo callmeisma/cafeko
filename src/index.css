@@ -55,6 +55,10 @@ body {
   @apply bg-c-beige font-sans text-neutral-950;
 }
 
+.link {
+  @apply outline-none decoration-c-orange decoration-2 underline-offset-2 hover:underline focus:underline;
+}
+
 /* =========================================================
    TV LIQUID WAVE TRANSITION — current version only
 ========================================================= */
