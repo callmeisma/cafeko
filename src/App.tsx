@@ -1,11 +1,23 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams, useSearchParams } from "react-router-dom";
 
 import Home from "./pages/Home";
 import ScrollToTop from "./components/ScrollToTop";
 import Menu from "./pages/Menu";
 import MenuScreenSlideshow from "./pages/MenuScreenSlideshow";
 import NotFound from "./pages/NotFound";
-import TvScreen, { getRotationFromUrl } from "./components/TvScreen";
+import TvScreen, { parseRotation } from "./components/TvScreen";
+
+function MenuScreenRoute() {
+  const { orientation } = useParams();
+  const [searchParams] = useSearchParams();
+  const rotation = parseRotation(orientation ?? searchParams.get("rotate"), 90);
+
+  return (
+    <TvScreen rotation={rotation}>
+      <MenuScreenSlideshow />
+    </TvScreen>
+  );
+}
 
 export default function App() {
   return (
@@ -15,17 +27,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
-
-        <Route
-          path="/menu-screen"
-          element={
-            <TvScreen rotation={getRotationFromUrl(90)}>
-              <MenuScreenSlideshow />
-            </TvScreen>
-          }
-        />
-        
-
+        <Route path="/menu-screen" element={<MenuScreenRoute />} />
+        <Route path="/menu-screen/:orientation" element={<MenuScreenRoute />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

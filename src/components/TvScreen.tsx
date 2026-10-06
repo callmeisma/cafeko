@@ -26,13 +26,14 @@ export function orientationFor(rotation: ScreenRotation): ScreenOrientation {
  * Reads ?rotate= from the URL so each TV can be configured without a rebuild.
  * Accepts: 0 | 90 | 180 | 270 | landscape | portrait | cw | ccw | flip
  */
-export function getRotationFromUrl(fallback: ScreenRotation = 90): ScreenRotation {
-  if (typeof window === "undefined") return fallback;
-  const raw = new URLSearchParams(window.location.search).get("rotate")?.toLowerCase();
-
-  switch (raw) {
+export function parseRotation(
+  raw: string | null | undefined,
+  fallback: ScreenRotation = 90
+): ScreenRotation {
+  switch (raw?.toLowerCase()) {
     case "0":
     case "landscape":
+    case "horizontal":
       return 0;
     case "90":
     case "cw":
