@@ -51,10 +51,6 @@ body,
   @apply min-h-full w-full;
 }
 
-:root {
-  color-scheme: light only;
-}
-
 body {
   @apply bg-c-beige font-sans text-neutral-950;
 }
