@@ -209,7 +209,7 @@ type MenuData = ReturnType<typeof useMenuData>;
 
 function PortraitLayout({ coffee, drinks, iceCream, milkshakes, food, combos }: MenuData) {
   return (
-    <div className="relative z-10 grid h-full min-h-0 grid-rows-[auto_28%_1fr_auto] gap-5 px-10 pb-7 pt-8">
+    <div className="relative z-10 grid h-full min-h-0 grid-rows-[auto_28%_1fr_auto] gap-5 px-10 pb-7 pt-8 bg-c-beige">
       <MenuHeader />
       <SignatureFeature iceCream={iceCream} />
 
