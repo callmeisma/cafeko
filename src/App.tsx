@@ -5,16 +5,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import Menu from "./pages/Menu";
 import MenuScreenSlideshow from "./pages/MenuScreenSlideshow";
 import NotFound from "./pages/NotFound";
-import PortraitTv from "./components/PortraitTv";
+import TvScreen, { getRotationFromUrl } from "./components/TvScreen";
 
 export default function App() {
-  const rotateMenuScreen = import.meta.env.VITE_TV_PORTRAIT !== "false";
-
-  const tvRotation =
-    import.meta.env.VITE_TV_ROTATION === "counterclockwise"
-      ? "counterclockwise"
-      : "clockwise";
-
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -26,14 +19,12 @@ export default function App() {
         <Route
           path="/menu-screen"
           element={
-            <PortraitTv
-              enabled={rotateMenuScreen}
-              rotation={tvRotation}
-            >
+            <TvScreen rotation={getRotationFromUrl(90)}>
               <MenuScreenSlideshow />
-            </PortraitTv>
+            </TvScreen>
           }
         />
+        
 
         <Route path="*" element={<NotFound />} />
       </Routes>
