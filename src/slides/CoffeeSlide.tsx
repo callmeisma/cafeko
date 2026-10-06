@@ -7,7 +7,7 @@ export default function CoffeeSlide({ items }: { items: MenuItem[] }) {
     <main className="slide-stage relative grid h-full w-full grid-rows-[43%_57%] overflow-hidden bg-[#AD8154]">
       <section className="relative overflow-hidden bg-c-beige">
         <div className="slide-anim-ghost-text pointer-events-none absolute -left-8 -top-16 font-chunko text-[13rem] leading-none text-[#DCC79F]/45">
-          CAFÉKO
+          CAFÉKO AAA
         </div>
 
         <img

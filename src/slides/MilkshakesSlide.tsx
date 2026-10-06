@@ -12,7 +12,7 @@ export default function MilkshakesSlide({ items }: { items: MenuItem[] }) {
           className="slide-anim-photo absolute inset-0 h-full w-full object-cover object-center"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black opacity-10 via-transparent to-transparent" />
         <WavyDivider fill="#AFCB35" className="slide-anim-divider" />
       </section>
 

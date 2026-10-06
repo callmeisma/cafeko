@@ -48,7 +48,7 @@ export default function CombosSlide({ items }: { items: MenuItem[] }) {
         </div>
 
         <div className="slide-anim-card mt-8 rounded-[1.5rem] bg-c-pink px-6 py-5 text-center">
-          <p className="font-boyrun text-sm uppercase tracking-[0.16em] text-c-blue/55">
+          <p className="font-boyrun text-sm uppercase tracking-[0.16em] text-c-blue opacity-55">
             Easy fuel before or after your match
           </p>
         </div>

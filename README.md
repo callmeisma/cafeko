@@ -1,6 +1,8 @@
 # React + TypeScript + Vite
 
 npm run dev
+npm run predeploy
+npm run deploy
 
 TV - To switch between modes, change only the URL:
 
