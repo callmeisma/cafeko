@@ -167,7 +167,7 @@ export default function MenuScreenSlideshow() {
         {slides.map((slide, slideIndex) => (
           <span
             key={slide.id}
-            className="h-1.5 flex-1 overflow-hidden rounded-full bg-black bg-opacity-10"
+            className="h-1.5 flex-1 overflow-hidden rounded-full bg-black/10"
           >
             {slideIndex === index && !wipeVisible && (
               <span

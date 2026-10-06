@@ -7,7 +7,7 @@ export default function CoffeeSlide({ items }: { items: MenuItem[] }) {
     <main className="slide-stage relative grid h-full w-full grid-rows-[43%_57%] overflow-hidden bg-[#AD8154]">
       <section className="relative overflow-hidden bg-c-beige">
         <div className="slide-anim-ghost-text pointer-events-none absolute -left-8 -top-16 font-chunko text-[13rem] leading-none text-[#DCC79F]/45">
-          CAFÉKO AAA
+          CAFÉKO
         </div>
 
         <img
@@ -16,7 +16,7 @@ export default function CoffeeSlide({ items }: { items: MenuItem[] }) {
           className="slide-anim-photo absolute inset-0 h-full w-full object-cover object-center"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-c-beige opacity-25 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-c-beige/25 via-transparent to-transparent" />
         <WavyDivider fill="#AD8154" className="slide-anim-divider" />
       </section>
 

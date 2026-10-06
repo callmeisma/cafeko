@@ -26,7 +26,7 @@ function MenuSection({
         <h2 className="font-chunko min-w-0 text-[2.15rem] uppercase leading-[0.9] tracking-wide text-c-blue">
           {title}
         </h2>
-        <span className="mb-1 h-px min-w-4 flex-1 bg-c-blue opacity-15" />
+        <span className="mb-1 h-px min-w-4 flex-1 bg-c-blue/15" />
       </div>
 
       <div className={dense ? "space-y-2" : "space-y-2.5"}>
@@ -50,7 +50,7 @@ function MenuSection({
                   {item.name}
                 </span>
 
-                <span className="mb-1 min-w-3 flex-1 border-b border-dotted border-black opacity-25" />
+                <span className="mb-1 min-w-3 flex-1 border-b border-dotted border-black/25" />
 
                 <strong className="shrink-0 whitespace-nowrap text-[0.95rem]">
                   {item.price}
@@ -58,7 +58,7 @@ function MenuSection({
               </div>
 
               {item.description && (
-                <p className="mt-1 text-[0.72rem] leading-[1.25] text-black opacity-55">
+                <p className="mt-1 text-[0.72rem] leading-[1.25] text-black/55">
                   {item.description}
                 </p>
               )}
@@ -82,7 +82,7 @@ function SignatureFeature({
         compact ? "grid-cols-[1.3fr_0.7fr]" : "grid-cols-[1.08fr_0.92fr]"
       }`}>
       <div className={`relative z-10 flex min-w-0 flex-col justify-center ${compact ? "px-6 py-5" : "px-8 py-6"}`}>
-        <p className="font-boyrun text-[0.72rem] uppercase tracking-[0.18em] text-c-blue opacity-55">
+        <p className="font-boyrun text-[0.72rem] uppercase tracking-[0.18em] text-c-blue/55">
           New Zealand-style
         </p>
 
@@ -146,7 +146,7 @@ function ProductCallout({
       <img src={image} alt="" className="h-full max-h-28 w-full object-contain" />
 
       <div className="min-w-0 text-center">
-        <span className="font-aimla text-[0.68rem] uppercase tracking-[0.12em] text-black opacity-55">
+        <span className="font-aimla text-[0.68rem] uppercase tracking-[0.12em] text-black/55">
           {eyebrow}
         </span>
 
@@ -166,7 +166,7 @@ function MenuHeader() {
           <span className="font-boyrun text-[0.78rem] uppercase tracking-[0.18em] text-c-orange">
             Menu
           </span>
-          <span className="h-px w-10 bg-c-orange opacity-45" />
+          <span className="h-px w-10 bg-c-orange/45" />
           <span className="font-boyrun text-[0.78rem] uppercase tracking-[0.18em] text-c-orange">
             Refuel here
           </span>
@@ -178,7 +178,7 @@ function MenuHeader() {
       </div>
 
       <div className="max-w-[240px] shrink-0 pb-1 text-right">
-        <p className="font-boyrun text-[0.72rem] uppercase tracking-[0.14em] text-c-blue opacity-55">
+        <p className="font-boyrun text-[0.72rem] uppercase tracking-[0.14em] text-c-blue/55">
           Play. Refuel. Repeat.
         </p>
         <p className="mt-1 text-[0.72rem] leading-snug text-black/45">
@@ -191,14 +191,14 @@ function MenuHeader() {
 
 function MenuFooter() {
   return (
-    <footer className="slide-anim-footer flex items-center justify-between border-t border-black opacity-10 pt-4">
+    <footer className="slide-anim-footer flex items-center justify-between border-t border-black/10 pt-4">
       <div className="flex items-center gap-3 text-c-orange">
         <i className="fa-brands fa-instagram text-xl" />
         <span className="text-[0.72rem] uppercase tracking-[0.14em]">Follow us</span>
         <strong className="font-boyrun text-[0.9rem] tracking-wide">@CAFEKO.US</strong>
       </div>
 
-      <p className="font-boyrun text-[0.72rem] uppercase tracking-[0.14em] text-c-blue opacity-55">
+      <p className="font-boyrun text-[0.72rem] uppercase tracking-[0.14em] text-c-blue/55">
         Made fresh · Made to order
       </p>
     </footer>
@@ -209,7 +209,7 @@ type MenuData = ReturnType<typeof useMenuData>;
 
 function PortraitLayout({ coffee, drinks, iceCream, milkshakes, food, combos }: MenuData) {
   return (
-    <div className="relative z-10 grid h-full min-h-0 grid-rows-[auto_28%_1fr_auto] gap-5 px-10 pb-7 pt-8 bg-c-beige">
+    <div className="relative z-10 grid h-full min-h-0 grid-rows-[auto_28%_1fr_auto] gap-5 px-10 pb-7 pt-8">
       <MenuHeader />
       <SignatureFeature iceCream={iceCream} />
 
@@ -301,8 +301,8 @@ export default function MenuScreen() {
 
   return (
     <main className="slide-stage relative h-full w-full overflow-hidden bg-c-beige text-neutral-950">
-      <div className="slide-anim-blob-a pointer-events-none absolute -right-20 top-20 h-64 w-64 rounded-full bg-c-green opacity/30" />
-      <div className="slide-anim-blob-b pointer-events-none absolute -left-24 bottom-24 h-56 w-56 rounded-full bg-c-pink opacity-35" />
+      <div className="slide-anim-blob-a pointer-events-none absolute -right-20 top-20 h-64 w-64 rounded-full bg-c-green/30" />
+      <div className="slide-anim-blob-b pointer-events-none absolute -left-24 bottom-24 h-56 w-56 rounded-full bg-c-pink/35" />
 
       {orientation === "portrait" ? <PortraitLayout {...data} /> : <LandscapeLayout {...data} />}
     </main>
