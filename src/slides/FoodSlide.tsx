@@ -20,7 +20,7 @@ export default function FoodSlide({ items }: { items: MenuItem[] }) {
       </section>
 
       <section className="relative flex min-h-0 flex-col px-11 pb-10 pt-8 text-[#FF5A0A]">
-        <p className="slide-anim-eyebrow font-boyrun text-sm uppercase tracking-[0.18em] text-[#FF5A0A]/70">
+        <p className="slide-anim-eyebrow font-boyrun text-sm uppercase tracking-[0.18em] text-[#FF5A0A] opacity-70">
           Fresh bakery · grab & go
         </p>
 
@@ -34,7 +34,7 @@ export default function FoodSlide({ items }: { items: MenuItem[] }) {
             compact
             textClassName="text-[#FF5A0A]"
             priceClassName="text-[#FF5A0A]"
-            lineClassName="border-[#FF5A0A]/35"
+            lineClassName="border-[#FF5A0A] opacity-35"
             animationStartMs={500}
             staggerMs={48}
           />
