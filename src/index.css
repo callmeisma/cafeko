@@ -121,7 +121,10 @@ body {
 }
 
 .tv-slide-progress {
-  animation: tvSlideProgress 12s linear forwards;
+  animation-name: tvSlideProgress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  transform-origin: left;
 }
 
 /* =========================================================
