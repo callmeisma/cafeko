@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, useParams, useSearchParams } from "react-
 import Home from "./pages/Home";
 import ScrollToTop from "./components/ScrollToTop";
 import Menu from "./pages/Menu";
-import MenuScreenSlideshow from "./pages/MenuScreenSlideshow";
+import Slideshow from "./pages/Slideshow";
 import NotFound from "./pages/NotFound";
 import TvScreen, { parseRotation } from "./components/TvScreen";
 
@@ -14,7 +14,7 @@ function MenuScreenRoute() {
 
   return (
     <TvScreen rotation={rotation}>
-      <MenuScreenSlideshow />
+      <Slideshow />
     </TvScreen>
   );
 }
@@ -27,8 +27,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
-        <Route path="/menu-screen" element={<MenuScreenRoute />} />
-        <Route path="/menu-screen/:orientation" element={<MenuScreenRoute />} />
+        <Route path="/slideshow" element={<MenuScreenRoute />} />
+        <Route path="/slideshow/:orientation" element={<MenuScreenRoute />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
