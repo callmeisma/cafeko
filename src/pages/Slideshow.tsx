@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import LiquidWaveWipe from "../components/LiquidWaveWipe";
 
 import ImageTemplateSlide from "../slides/ImageTemplateSlide";
-import VideoTemplateSlide from "../slides/VideoTemplateSlide";
+// import VideoTemplateSlide from "../slides/VideoTemplateSlide";
 // import MenuScreenSlide from "../slides/MenuSlide";
 // import RealFruitIceCreamSlide from "../slides/RealFruitIceCreamSlide";
 // import CoffeeSlide from "../slides/CoffeeSlide";
@@ -163,6 +163,7 @@ export default function Slideshow() {
       // },
     ],
     // [coffee, drinks, milkshakes, food, combos]
+    []
   );
 
   const currentHoldMs = holdMsFor(slides[index]);
