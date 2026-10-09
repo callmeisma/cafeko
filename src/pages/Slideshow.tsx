@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 // import { useMenuData } from "../hooks/useMenuData";
+import { isValidElement } from "react";
 
 import LiquidWaveWipe from "../components/LiquidWaveWipe";
 
@@ -34,6 +35,35 @@ type SlideDefinition = {
   /** Optional: override DEFAULT_SECONDS for this slide */
   seconds?: number;
 };
+
+/** Loads + decodes all images once and keeps them in memory so slides never show a gap */
+function usePreloadImages(srcs: string[]) {
+  const [ready, setReady] = useState(srcs.length === 0);
+  const cache = useRef<HTMLImageElement[]>([]);
+  const key = srcs.join("|");
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const imgs = srcs.map((src) => {
+      const img = new Image();
+      img.src = encodeURI(src);
+      return img;
+    });
+    cache.current = imgs; // keeping a reference stops the TV from discarding them
+
+    Promise.all(imgs.map((img) => img.decode().catch(() => {}))).then(() => {
+      if (!cancelled) setReady(true);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key]);
+
+  return ready;
+}
 
 const holdMsFor = (slide: SlideDefinition) =>
   (slide.seconds ?? DEFAULT_SECONDS) * 1000;
@@ -166,6 +196,18 @@ export default function Slideshow() {
     []
   );
 
+  const imageSrcs = useMemo(
+  () =>
+    slides
+      .map((slide) =>
+        isValidElement<{ src?: string }>(slide.node) ? slide.node.props.src : undefined
+      )
+      .filter((src): src is string => Boolean(src)),
+  [slides]
+);
+
+const imagesReady = usePreloadImages(imageSrcs);
+
   const currentHoldMs = holdMsFor(slides[index]);
 
   const clearTimers = useCallback(() => {
@@ -207,13 +249,22 @@ export default function Slideshow() {
 
   // Slide timer and progress bar both start when `index` changes, so they stay in sync.
   useEffect(() => {
+    if (!imagesReady) return;
     const timer = window.setTimeout(advance, currentHoldMs);
     return () => window.clearTimeout(timer);
-  }, [index, advance, currentHoldMs]);
+  }, [index, advance, currentHoldMs, imagesReady]);
 
   useEffect(() => {
     return () => clearTimers();
   }, [clearTimers]);
+
+  if (!imagesReady) {
+    return (
+      <div className="flex h-full w-full items-center justify-center bg-c-beige">
+        <span className="font-chunko text-6xl text-c-orange">CAFÉKO</span>
+      </div>
+    );
+  }
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-c-beige">
