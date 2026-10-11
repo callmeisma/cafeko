@@ -31,14 +31,16 @@ export function parseRotation(
   fallback: ScreenRotation = 90
 ): ScreenRotation {
   switch (raw?.toLowerCase()) {
-    case "0":
-    case "landscape":
-    case "horizontal":
-      return 0;
-    case "90":
-    case "cw":
-    case "portrait":
-      return 90;
+  case "0":
+  case "h":
+  case "landscape":
+  case "horizontal":
+    return 0;
+  case "90":
+  case "v":
+  case "cw":
+  case "portrait":
+    return 90;
     case "180":
     case "flip":
       return 180;
