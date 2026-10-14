@@ -1,6 +1,6 @@
 // export default function ImageTemplateSlide() {
 //   return (
-//     <img src="public/images/menu/slides/Combos-Slide.png" alt="Image Template" className="w-full h-full object-cover " />
+//     <img src="public/images/slides/Combos-Slide.png" alt="Image Template" className="w-full h-full object-cover " />
 //   );
 // }
 const BG = ["#F5EFDD", "#F1B7E8", "#FFE164", "#AFCB35", "#AD8154", "#1694D2", "#FF5A0A"];

@@ -7,7 +7,7 @@ export default function MilkshakesSlide({ items }: { items: MenuItem[] }) {
     <main className="slide-stage relative grid h-full w-full grid-rows-[49%_51%] overflow-hidden bg-[#AFCB35]">
       <section className="relative overflow-hidden bg-c-blue">
         <img
-          src="/images/menu/slides/milkshakes-hero.jpg"
+          src="/images/slides/milkshakes-hero.jpg"
           alt="CAFÉKO milkshake"
           className="slide-anim-photo absolute inset-0 h-full w-full object-cover object-center"
         />

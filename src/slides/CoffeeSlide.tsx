@@ -11,7 +11,7 @@ export default function CoffeeSlide({ items }: { items: MenuItem[] }) {
         </div>
 
         <img
-          src="/images/menu/slides/coffee-hero.jpg"
+          src="/images/slides/coffee-hero.jpg"
           alt="CAFÉKO coffee"
           className="slide-anim-photo absolute inset-0 h-full w-full object-cover object-center"
         />

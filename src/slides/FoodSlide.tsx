@@ -11,7 +11,7 @@ export default function FoodSlide({ items }: { items: MenuItem[] }) {
         </div>
 
         <img
-          src="/images/menu/slides/food-hero.jpg"
+          src="/images/slides/food-hero.jpg"
           alt="CAFÉKO bakery and breakfast food"
           className="slide-anim-photo absolute inset-0 h-full w-full object-cover object-center"
         />

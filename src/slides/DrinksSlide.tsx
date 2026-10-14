@@ -7,7 +7,7 @@ export default function DrinksSlide({ items }: { items: MenuItem[] }) {
     <main className="slide-stage relative grid h-full w-full grid-rows-[46%_54%] overflow-hidden bg-[#FF5A0A]">
       <section className="relative overflow-hidden bg-c-blue">
         <img
-          src="/images/menu/slides/drinks-hero.jpg"
+          src="/images/slides/drinks-hero.jpg"
           alt="Cold drinks at CAFÉKO"
           className="slide-anim-photo absolute inset-0 h-full w-full object-cover object-center"
         />
