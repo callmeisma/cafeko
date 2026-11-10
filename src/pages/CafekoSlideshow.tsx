@@ -6,7 +6,12 @@ export default function CafekoSlideshow() {
   const slides: Slide[] = [
     {
       id: "icecream-video",
-      node: <VideoTemplateSlide src="/images/slides/cafeko-icecream-strawberry-mango.mov" />,
+      node: (
+        <VideoTemplateSlide
+          src="/images/slides/cafeko-icecream-strawberry-mango.mp4"
+          poster="/images/slides/cafeko-icecream-strawberry-mango-poster.jpg"
+        />
+      ),
       seconds: 14,
     },
     { id: "food-img", src: "/images/slides/Food-Portrait-Slide.png" },
