@@ -1,5 +1,16 @@
-export default function VideoTemplateSlide() {
+type VideoTemplateSlideProps = {
+  src: string;
+};
+
+export default function VideoTemplateSlide({ src }: VideoTemplateSlideProps) {
   return (
-    <video src="/images/slides/20240418_163952000_iOS.mp4" className="w-full h-full object-cover" autoPlay loop muted />
+    <video
+      src={src}
+      className="w-full h-full object-cover"
+      autoPlay
+      loop
+      muted
+      playsInline
+    />
   );
 }
