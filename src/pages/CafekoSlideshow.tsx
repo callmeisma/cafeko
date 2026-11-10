@@ -13,11 +13,6 @@ export default function CafekoSlideshow() {
     { id: "ice-cream-img", src: "/images/slides/Ice-Cream-Portrait-Slide.png" },
     { id: "canela-caramel-img", src: "/images/slides/Cafeko-Canela Caramel-Poster.png" },
     { id: "coffee-img", src: "/images/slides/Coffee-Portrait-Slide.png" },
-    {
-      id: "another-video",
-      node: <VideoTemplateSlide src="/images/slides/cafeko-icecream.mp4" />,
-      seconds: 9,
-    },
     { id: "milkshakes-img", src: "/images/slides/Milkshakes-Portrait-Slide.png" },
     { id: "combos-img", src: "/images/slides/Combos-Portrait-Slide.png" },
     { id: "drinks-img", src: "/images/slides/Drinks-Portrait-Slide.png" },
